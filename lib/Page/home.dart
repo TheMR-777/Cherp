@@ -6,8 +6,7 @@ class MyMainPage extends StatelessWidget {
   const MyMainPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
           elevation: 0,
@@ -30,5 +29,4 @@ class MyMainPage extends StatelessWidget {
           ),
         )
     );
-  }
 }

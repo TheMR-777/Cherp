@@ -5,7 +5,8 @@ import 'sources.dart';
 
 void main() => runApp(MaterialApp(
   title: "Twittery",
-  initialRoute: screen.settings,
+  //initialRoute: screen.settings,
+  initialRoute: screen.main,
   routes: {
     screen.main: (context) => const MyMainPage(),
     screen.settings: (context) => const MySettings(),
