@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'src/sources.dart';
 import '../sources.dart';
 
 class MySettings extends StatefulWidget {
@@ -62,19 +63,7 @@ class _MySettingsState extends State<MySettings> {
             bottom: MediaQuery.of(context).size.height * 0.1,
           ),
           children: [
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.white,
-                  width: 2,
-                ),
-              ),
-              child: CircleAvatar(
-                foregroundImage: const AssetImage("assets/Placeholder/P1.png"),
-                radius: MediaQuery.of(context).size.width * 0.2,
-              ),
-            ),      // Avatar
+            const MyAvatar(),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             text_field("Username"),
             my_spacing,

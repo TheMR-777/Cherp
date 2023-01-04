@@ -5,8 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 
 class screen {
-  static const main = "/main";
-  static const settings = "/settings";
+  static const home = "home";
+  static const settings = "settings";
+  static const home_with_info = "info_home";
 }
 
 class sources {

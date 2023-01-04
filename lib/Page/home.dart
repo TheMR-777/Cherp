@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'src/sources.dart';
 import '../sources.dart';
 
 class MyMainPage extends StatelessWidget {
@@ -19,14 +20,8 @@ class MyMainPage extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: const MyNavigation(),
-        body: DarkOne(
-          child: ListView.builder(
-            itemCount: 5,
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.05,
-            ),
-            itemBuilder: (context, index) => const TheCard(),
-          ),
+        body: const DarkOne(
+          child: Tweets(),
         )
     );
 }
