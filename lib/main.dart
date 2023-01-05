@@ -5,6 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
 import 'Page/01_home.dart';
 import 'Page/02_search.dart';
+import 'Page/03_tweetify.dart';
 import 'Page/04_notification.dart';
 import 'Page/05_profile.dart';
 import 'Page/99_settings.dart';
@@ -13,6 +14,7 @@ import 'Initial/verification.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
+  color: Colors.yellow,
   title: "Twittery",
    initialRoute: "signin",
     routes: {
@@ -74,7 +76,7 @@ class _TheMainState extends State<TheMain> {
         items: const [
           MyHomePage(),
           MySearch(),
-          MyNotification(),
+          MakeCherp(),
           MyNotification(),
           MyHomeInfo(),
           ViaEditButton(),

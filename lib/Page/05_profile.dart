@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wp_02_twittery/Page/src/sources.dart';
-import 'package:wp_02_twittery/main.dart';
+import 'src/sources.dart';
+import '../main.dart';
 import '../sources.dart';
 
 class MyHomeInfo extends StatefulWidget {

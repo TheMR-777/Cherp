@@ -35,10 +35,17 @@ class DarkOne extends StatelessWidget {
   );
 }
 
-class TheCard extends StatelessWidget {
+class TheCard extends StatefulWidget {
   const TheCard({
     Key? key
   }) : super(key: key);
+
+  @override
+  State<TheCard> createState() => _TheCardState();
+}
+
+class _TheCardState extends State<TheCard> {
+  bool is_enabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -121,32 +128,23 @@ class TheCard extends StatelessWidget {
             ),
           ),  // Image
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  const Icon(Icons.favorite_border, color: Colors.white),
-                  Text(
-                    "  1.2K",
-                    style: sources.font_style(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.bookmark_border_outlined, color: Colors.white),
-                  Text(
-                    "  568",
-                    style: sources.font_style(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.reply_rounded, color: Colors.white),
-                ],
-              ),  // Icons
-              const Icon(Icons.share, color: Colors.white),
+              InkWell(
+                onTap: () => setState(() => is_enabled = !is_enabled),
+                child: Icon(
+                    is_enabled ? Icons.favorite : Icons.favorite_border,
+                    color: Colors.white
+                ),
+              ),
+              Text(
+                "  1.2K",
+                style: sources.font_style(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
+              const SizedBox(width: 10),
+              const Icon(Icons.message_rounded, color: Colors.white),
             ],
           ),      // Icons
         ],
