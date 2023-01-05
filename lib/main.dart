@@ -30,7 +30,7 @@ class _TheMainState extends State<TheMain> {
         onPressed: () => TheMain.my_controller.animateToPage(index),
         icon: SvgPicture.asset(
           "assets/Icon/$name.svg",
-          color: index == 5 ? Colors.white.withOpacity(0.1) :     Remove it later
+          color: index == 5 ? Colors.white.withOpacity(0.1) :     // Remove it later
           index == selected ? Colors.yellow : Colors.white.withOpacity(0.5),
           height: MediaQuery.of(context).size.height * 0.03,
         ),
