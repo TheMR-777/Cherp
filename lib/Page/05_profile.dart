@@ -92,7 +92,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                             style: OutlinedButton.styleFrom(
                               backgroundColor: const Color(0xFFfffcdd),
                               side: BorderSide(
-                                color: Colors.yellow.withOpacity(0.7),
+                                color: Colors.lime.shade700,
                                 width: 1.5,
                               ),
                               shape: RoundedRectangleBorder(
@@ -102,7 +102,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                             child: Text(
                               "Edit",
                               style: sources.font_style(
-                                color: Colors.yellow.withOpacity(0.7),
+                                color: Colors.lime.shade800,
                                 fontSize: MediaQuery.of(context).size.height * 0.02,
                               ),
                             ),

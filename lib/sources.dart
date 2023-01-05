@@ -9,6 +9,11 @@ class sources {
   static const background = "assets/background_dark.png";
   static const font_style = GoogleFonts.outfit;
 
+  static const icon_video = "assets/Icon/add_video.svg";
+  static const icon_photo = "assets/Icon/add_photo.svg";
+  static const icon_audio = "assets/Icon/add_audio.svg";
+  static const icon_phone = "assets/Icon/add_phone.svg";
+
   static const avatar_01 = "assets/Placeholder/P1.png";
   static const avatar_02 = "assets/Placeholder/P2.png";
 
