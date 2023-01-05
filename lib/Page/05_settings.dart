@@ -14,42 +14,8 @@ class MySettings extends StatefulWidget {
 }
 
 class _MySettingsState extends State<MySettings> {
-
-  static final field_border_style = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(15),
-    borderSide: BorderSide(
-      color: Colors.white.withOpacity(0.7),
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
-
-    Widget text_field(String label) => TextFormField(
-      style: sources.font_style(
-        color: Colors.white,
-        // fontSize: 18,
-        fontSize: MediaQuery.of(context).size.width * 0.04,
-      ),
-      maxLines: null,
-      cursorColor: Colors.white.withOpacity(0.7),
-      decoration: InputDecoration(
-        // Set some default text
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.07),
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.05,
-          vertical: MediaQuery.of(context).size.height * 0.02,
-        ),
-        labelText: label,
-        labelStyle: sources.font_style(
-          color: Colors.white.withOpacity(0.7),
-          fontSize: 18,
-        ),
-        enabledBorder: field_border_style,
-        focusedBorder: field_border_style,
-      ),
-    );
     final my_spacing = SizedBox(
       height: MediaQuery.of(context).size.height * 0.02,
     );
@@ -65,11 +31,11 @@ class _MySettingsState extends State<MySettings> {
         children: [
           const MyAvatar(),
           SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-          text_field("Username"),
+          text_field(context, "Username"),
           my_spacing,
-          text_field("Full Name"),
+          text_field(context, "Full Name"),
           my_spacing,
-          text_field("Profile Bio"),
+          text_field(context, "Profile Bio"),
           my_spacing,
           Container(
             alignment: Alignment.center,

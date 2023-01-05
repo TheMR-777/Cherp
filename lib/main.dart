@@ -1,14 +1,25 @@
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
-import 'Page/home.dart';
-import 'Page/settings.dart';
-import 'Page/home_info.dart';
+import 'Page/01_home.dart';
+import 'Page/02_search.dart';
+import 'Page/03_home_info.dart';
+import 'Page/04_notification.dart';
+import 'Page/05_settings.dart';
+import 'Initial/Signin.dart';
+import 'Initial/verification.dart';
 
-void main() => runApp(const MaterialApp(
+void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   title: "Twittery",
-  home: TheMain(),
+   initialRoute: "signin",
+    routes: {
+      "signin":(context) => Sign_in(),
+      "verification":(context) => OTP_verification(),
+      "home":(context) => TheMain(),
+    },
 ));
 
 class TheMain extends StatefulWidget {
@@ -44,10 +55,10 @@ class _TheMainState extends State<TheMain> {
         child: Row(
           children: [
             bottomLogo("globe", index: 0),
-            bottomLogo("search"),
-            bottomLogo("main_transparent", index: 1),
-            bottomLogo("ring"),
-            bottomLogo("account", index: 2),
+            bottomLogo("search", index: 1),
+            bottomLogo("main_transparent", index: 2),
+            bottomLogo("ring", index: 3),
+            bottomLogo("account", index: 4),
           ],
         ),
       ),
@@ -62,7 +73,9 @@ class _TheMainState extends State<TheMain> {
         ),
         items: const [
           MyHomePage(),
+          MySearch(),
           MyHomeInfo(),
+          MyNotification(),
           MySettings(),
         ],
       ),

@@ -3,11 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class screen {
-  static const home = "home";
-  static const settings = "settings";
-  static const home_with_info = "info_home";
-}
 
 class sources {
   static const icon_main = "assets/Icon/main_transparent.svg";
