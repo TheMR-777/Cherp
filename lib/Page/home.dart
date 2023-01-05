@@ -3,25 +3,23 @@ import 'package:flutter_svg/svg.dart';
 import 'src/sources.dart';
 import '../sources.dart';
 
-class MyMainPage extends StatelessWidget {
-  const MyMainPage({Key? key}) : super(key: key);
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          elevation: 0,
-          toolbarHeight: 60,
-          centerTitle: true,
-          title: SvgPicture.asset(
-            sources.icon_main,
-            height: 25,
-            color: Colors.yellow,
-          ),
+  Widget build(BuildContext context) => DarkOne(
+    child: Column(
+      children: [
+        SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+        SvgPicture.asset(
+          sources.icon_main,
+          height: MediaQuery.of(context).size.height * 0.04,
+          color: Colors.yellow,
         ),
-        bottomNavigationBar: const MyNavigation(),
-        body: const DarkOne(
-          child: Tweets(),
-        )
-    );
+        const Expanded(
+            child: Tweets()
+        ),
+      ],
+    ),
+  );
 }

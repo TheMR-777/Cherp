@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/svg.dart';
 
 class screen {
   static const home = "home";
@@ -40,35 +39,6 @@ class DarkOne extends StatelessWidget {
     child: child,
   );
 }
-
-class MyNavigation extends StatelessWidget {
-  const MyNavigation({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-
-    Widget bottomLogo(String name, {Color? color}) => Expanded(
-      child: SvgPicture.asset(
-        "assets/Icon/$name.svg", color: color,
-        height: MediaQuery.of(context).size.height * 0.03,
-      ),
-    );
-
-    return Container(
-    color: Colors.black,
-    height: MediaQuery.of(context).size.height * 0.075,
-    child: Row(
-      children: [
-        bottomLogo("globe"),
-        bottomLogo("search"),
-        bottomLogo("main_transparent", color: Colors.yellow),
-        bottomLogo("ring"),
-        bottomLogo("account"),
-      ],
-    ),
-  );
-  }}
-
 
 class TheCard extends StatelessWidget {
   const TheCard({
