@@ -5,10 +5,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
 import 'Page/01_home.dart';
 import 'Page/02_search.dart';
-import 'Page/03_home_info.dart';
 import 'Page/04_notification.dart';
-import 'Page/05_settings.dart';
-import 'Initial/Signin.dart';
+import 'Page/05_profile.dart';
+import 'Page/99_settings.dart';
+import 'Initial/sign_in.dart';
 import 'Initial/verification.dart';
 
 void main() => runApp(MaterialApp(
@@ -16,9 +16,9 @@ void main() => runApp(MaterialApp(
   title: "Twittery",
    initialRoute: "signin",
     routes: {
-      "signin":(context) => Sign_in(),
-      "verification":(context) => OTP_verification(),
-      "home":(context) => TheMain(),
+      "signin": (context) => Sign_in(),
+      "verification": (context) => OTP_verification(),
+      "home": (context) => TheMain(),
     },
 ));
 
@@ -74,9 +74,10 @@ class _TheMainState extends State<TheMain> {
         items: const [
           MyHomePage(),
           MySearch(),
-          MyHomeInfo(),
           MyNotification(),
-          MySettings(),
+          MyNotification(),
+          MyHomeInfo(),
+          ViaEditButton(),
         ],
       ),
     );

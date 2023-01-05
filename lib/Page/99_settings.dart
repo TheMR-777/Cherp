@@ -64,3 +64,12 @@ class _MySettingsState extends State<MySettings> {
     );
   }
 }
+
+class ViaEditButton extends StatelessWidget {
+  const ViaEditButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => const Scaffold(
+    body: MySettings(),
+  );
+}
