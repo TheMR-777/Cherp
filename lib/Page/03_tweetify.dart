@@ -77,7 +77,7 @@ class MakeCherp extends StatelessWidget {
                 ),
               ),
             ),
-          ),
+          ),       // What's Happening
         ],
       ),
     ),
