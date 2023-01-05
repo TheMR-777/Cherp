@@ -15,11 +15,12 @@ class _OTP_verificationState extends State<OTP_verification> {
   Widget build(BuildContext context) {
     final screen_height = MediaQuery.of(context).size.height;
     final screen_width = MediaQuery.of(context).size.width;
+    const otp_aspect = 0.06;
 
     Widget OTPbox() {
       return Container(
-        height: screen_height * 0.07,
-        width: screen_height * 0.07,
+        height: screen_height * otp_aspect,
+        width: screen_height * otp_aspect,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white.withOpacity(0.1)),
@@ -28,6 +29,10 @@ class _OTP_verificationState extends State<OTP_verification> {
           keyboardType: TextInputType.number,
           cursorColor: Colors.white,
           textAlign: TextAlign.center,
+          textAlignVertical: TextAlignVertical.center,
+          style: TextStyle(
+            color: Colors.white,
+          ),
           decoration: InputDecoration(
             border: InputBorder.none,
             counterText: "",
@@ -88,13 +93,8 @@ class _OTP_verificationState extends State<OTP_verification> {
             Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  OTPbox(),
-                  OTPbox(),
-                  OTPbox(),
-                  OTPbox(),
-                ],
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(6, (index) => OTPbox()),
               ),
             ),
             SizedBox(
