@@ -27,14 +27,6 @@ class TheMain extends StatefulWidget {
   const TheMain({Key? key}) : super(key: key);
 
   static final my_controller = CarouselController();
-
-  @override
-  State<TheMain> createState() => _TheMainState();
-}
-
-class _TheMainState extends State<TheMain> {
-  int selected = 0;
-
   static const icon_names = [
     "globe",
     "search",
@@ -42,6 +34,13 @@ class _TheMainState extends State<TheMain> {
     "ring",
     "account",
   ];
+
+  @override
+  State<TheMain> createState() => _TheMainState();
+}
+
+class _TheMainState extends State<TheMain> {
+  int selected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +63,7 @@ class _TheMainState extends State<TheMain> {
         height: MediaQuery.of(context).size.height * 0.075,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: List.generate(icon_names.length, (index) => bottomLogo(icon_names[index], index)),
+          children: List.generate(TheMain.icon_names.length, (index) => bottomLogo(TheMain.icon_names[index], index)),
         ),
       ),
       body: CarouselSlider(
