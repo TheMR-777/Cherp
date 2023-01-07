@@ -13,7 +13,6 @@ import 'Initial/verification.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
-  themeMode: ThemeMode.system,
   color: Colors.yellow,
   title: "Twittery",
   initialRoute: route.signIn,
