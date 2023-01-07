@@ -14,7 +14,8 @@ final field_border_style = OutlineInputBorder(
   ),
 );
 
-Widget text_field(BuildContext context, String label) => TextFormField(
+Widget text_field(BuildContext context, String label, {String by_default = ""}) => TextFormField(
+  initialValue: by_default,
   style: sources.font_style(
     color: sources.color_TheOther,
     // fontSize: 18,

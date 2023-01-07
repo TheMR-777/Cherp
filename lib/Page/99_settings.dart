@@ -43,11 +43,11 @@ class _MySettingsState extends State<MySettings> {
             ],
           ),    // Avatar and edit button
           SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-          text_field(context, "Username"),
+          text_field(context, "Username", by_default: settings_info.username),
           my_spacing,
-          text_field(context, "Full Name"),
+          text_field(context, "Full Name", by_default: settings_info.name),
           my_spacing,
-          text_field(context, "Profile Bio"),
+          text_field(context, "Profile Bio", by_default: settings_info.biography),
           my_spacing,
           Container(
             alignment: Alignment.center,

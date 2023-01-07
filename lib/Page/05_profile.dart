@@ -25,7 +25,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
       text,
       style: sources.font_style(
         //fontSize: 15,
-        fontSize: MediaQuery.of(context).size.height * 0.02,
+        fontSize: MediaQuery.of(context).size.height * 0.016,
         //fontSize: MediaQuery.of(context).size.width * 0.04,
         color: color,
       ),
@@ -148,7 +148,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.05,
+                      horizontal: MediaQuery.of(context).size.width * 0.03,
                       vertical: MediaQuery.of(context).size.height * 0.005,
                     ),
                     margin: EdgeInsets.symmetric(
@@ -158,7 +158,12 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         levelText("Level 2"),
-                        levelText("9,777"),
+                        // Bird logo
+                        Image.asset(
+                          "assets/Icon/bird.png",
+                          width: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        levelText("1,234"),
                       ],
                     ),
                   ),
