@@ -38,7 +38,7 @@ class _TheMainState extends State<TheMain> {
   static const icon_names = [
     "globe",
     "search",
-    "main_transparent",
+    "tweet",
     "ring",
     "account",
   ];
@@ -50,10 +50,10 @@ class _TheMainState extends State<TheMain> {
         onPressed: () => TheMain.my_controller.animateToPage(index),
         icon: SvgPicture.asset(
           "assets/Icon/$name.svg",
-          color: index == selected ?
+          color: index == 2 ? null : index == selected ?
               (sources.is_dark ? Colors.yellow : sources.color_dark) :
               sources.color_TheOther.withOpacity(0.5),
-          height: MediaQuery.of(context).size.height * 0.03,
+          //height: MediaQuery.of(context).size.height * 0.03,
         ),
       ),
     );
@@ -63,6 +63,7 @@ class _TheMainState extends State<TheMain> {
         color: sources.color_selected,
         height: MediaQuery.of(context).size.height * 0.075,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: List.generate(icon_names.length, (index) => bottomLogo(icon_names[index], index)),
         ),
       ),
