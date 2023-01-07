@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'src/sources.dart';
 import '../sources.dart';
 
@@ -27,7 +28,20 @@ class _MySettingsState extends State<MySettings> {
           bottom: MediaQuery.of(context).size.height * 0.1,
         ),
         children: [
-          const MyAvatar(),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              const MyAvatar(),
+              Positioned(
+                bottom: 0,
+                right: MediaQuery.of(context).size.width * 0.28,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: SvgPicture.asset("assets/Icon/settings_photo_edit.svg", width: MediaQuery.of(context).size.width * 0.1),
+                ),
+              ),
+            ],
+          ),    // Avatar and edit button
           SizedBox(height: MediaQuery.of(context).size.height * 0.05),
           text_field(context, "Username"),
           my_spacing,
