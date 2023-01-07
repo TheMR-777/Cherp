@@ -16,9 +16,9 @@ void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   color: Colors.yellow,
   title: "Twittery",
-   initialRoute: "signin",
+  initialRoute: "sign-in",
     routes: {
-      "signin": (context) => Sign_in(),
+      "sign-in": (context) => Sign_in(),
       "verification": (context) => OTP_verification(),
       "home": (context) => TheMain(),
     },

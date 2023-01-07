@@ -5,9 +5,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class sources {
+  static var is_dark = false;
+
+  static const color_dark = Colors.black;
+  static const color_light = Colors.white;
+
   static const icon_main = "assets/Icon/main_transparent.svg";
   static const background = "assets/background_dark.png";
   static const font_style = GoogleFonts.outfit;
+
+  static const background_light = "assets/background_light.png";
 
   static const icon_video = "assets/Icon/add_video.svg";
   static const icon_photo = "assets/Icon/add_photo.svg";
@@ -30,9 +37,11 @@ class DarkOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
       image: DecorationImage(
-        image: AssetImage(sources.background),
+        image: AssetImage(
+          sources.is_dark ? sources.background : sources.background_light,
+        ),
         fit: BoxFit.cover,
       ),
     ),
@@ -82,7 +91,7 @@ class _TheCardState extends State<TheCard> {
           Text(
             name,
             style: sources.font_style(
-              color: Colors.white,
+              color: sources.is_dark ? sources.color_light : sources.color_dark,
               fontSize: MediaQuery.of(context).size.width * 0.04,
             ),
           )
@@ -92,7 +101,7 @@ class _TheCardState extends State<TheCard> {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.2),
+        color: sources.is_dark ? sources.color_dark.withOpacity(0.2) : sources.color_light,
         borderRadius: BorderRadius.circular(10),
       ),
       margin: EdgeInsets.symmetric(
@@ -120,7 +129,7 @@ class _TheCardState extends State<TheCard> {
                 "tweet. This is just a placeholder for now. I am going to further design "
                 "the application.",
             style: sources.font_style(
-              color: Colors.white.withOpacity(0.8),
+              color: (sources.is_dark ? sources.color_light : sources.color_dark).withOpacity(0.8),
               fontSize: 15,
               height: 1.5,
             ),
