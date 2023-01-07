@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -125,7 +126,7 @@ class _TheCardState extends State<TheCard> {
               getAvatar(path: sources.avatar_01, name: "1st Name"),
               const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Icon(Icons.arrow_circle_right_rounded, color: Colors.yellow),
+                child: Icon(CupertinoIcons.arrow_right_circle_fill, color: Colors.yellow),
               ),  // Arrow
               getAvatar(path: sources.avatar_02, name: "2nd Name"),
             ],
