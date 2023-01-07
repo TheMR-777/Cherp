@@ -1,3 +1,3 @@
-# Twittery
+# Twittery (Cherp)
 
-Twittery — Twitter Clone
+The Twitter Clone

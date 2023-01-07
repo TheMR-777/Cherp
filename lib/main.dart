@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wp_02_twittery/sources.dart';
 import 'Page/01_home.dart';
 import 'Page/02_search.dart';
 import 'Page/03_tweetify.dart';
@@ -16,12 +15,12 @@ void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   color: Colors.yellow,
   title: "Twittery",
-  initialRoute: "sign-in",
-    routes: {
-      "sign-in": (context) => Sign_in(),
-      "verification": (context) => OTP_verification(),
-      "home": (context) => TheMain(),
-    },
+  initialRoute: route.signIn,
+  routes: {
+    route.signIn: (context) => const Sign_in(),
+    route.verify: (context) => const OTP_verification(),
+    route.myHome: (context) => const TheMain(),
+  },
 ));
 
 class TheMain extends StatefulWidget {
@@ -36,15 +35,24 @@ class TheMain extends StatefulWidget {
 class _TheMainState extends State<TheMain> {
   int selected = 0;
 
+  static const icon_names = [
+    "globe",
+    "search",
+    "main_transparent",
+    "ring",
+    "account",
+  ];
+
   @override
   Widget build(BuildContext context) {
-    Widget bottomLogo(String name, {int index = 5}) => Expanded(
+    Widget bottomLogo(String name, int index) => Expanded(
       child: IconButton(
         onPressed: () => TheMain.my_controller.animateToPage(index),
         icon: SvgPicture.asset(
           "assets/Icon/$name.svg",
-          color: index == 5 ? Colors.white.withOpacity(0.1) :     // Remove it later
-          index == selected ? Colors.yellow : Colors.white.withOpacity(0.5),
+          color: index == selected ?
+              (sources.is_dark ? Colors.yellow : sources.color_dark) :
+              sources.color_TheOther.withOpacity(0.5),
           height: MediaQuery.of(context).size.height * 0.03,
         ),
       ),
@@ -52,16 +60,10 @@ class _TheMainState extends State<TheMain> {
 
     return Scaffold(
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: sources.color_selected,
         height: MediaQuery.of(context).size.height * 0.075,
         child: Row(
-          children: [
-            bottomLogo("globe", index: 0),
-            bottomLogo("search", index: 1),
-            bottomLogo("main_transparent", index: 2),
-            bottomLogo("ring", index: 3),
-            bottomLogo("account", index: 4),
-          ],
+          children: List.generate(icon_names.length, (index) => bottomLogo(icon_names[index], index)),
         ),
       ),
       body: CarouselSlider(

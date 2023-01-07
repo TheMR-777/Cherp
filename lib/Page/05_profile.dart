@@ -4,14 +4,19 @@ import '../main.dart';
 import '../sources.dart';
 
 class MyHomeInfo extends StatefulWidget {
-  const MyHomeInfo({Key? key}) : super(key: key);
+  const MyHomeInfo({super.key});
 
   @override
   State<MyHomeInfo> createState() => _MyHomeInfoState();
 }
 
 class _MyHomeInfoState extends State<MyHomeInfo> {
-  int selected = 0;
+  static int selected = 0;
+
+  static const profile_options = [
+    "Your Cherps",
+    "Received Cherps",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
         color: color,
       ),
     );
-    Widget cherpsOne(String text, {required int id}) {
+    Widget cherpsOne(String text, int id) {
       final is_selected = selected == id;
       return Expanded(
           child: GestureDetector(
@@ -42,15 +47,15 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                       //fontSize: 15,
                       fontSize: MediaQuery.of(context).size.height * 0.02,
                       //fontSize: MediaQuery.of(context).size.width * 0.04,
-                      color: Colors.white.withOpacity(is_selected ? 0.8 : 0.4),
+                      color: sources.color_TheOther.withOpacity(is_selected ? 0.8 : 0.4),
                       fontWeight: is_selected ? FontWeight.w500 : FontWeight.normal,
                     ),
                   ),
-                ),
+                ),    // Text
                 Divider(
-                  color: is_selected ? Colors.white : Colors.white.withOpacity(0.5),
+                  color: is_selected ? sources.color_TheOther : sources.color_TheOther.withOpacity(0.3),
                   thickness: 2,
-                ),
+                ),    // Divider
               ],
             ),
           ),
@@ -90,6 +95,10 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                           child: OutlinedButton(
                             onPressed: () => TheMain.my_controller.animateToPage(5),
                             style: OutlinedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: MediaQuery.of(context).size.width * 0.04,
+                                vertical: MediaQuery.of(context).size.height * 0.015,
+                              ),
                               backgroundColor: const Color(0xFFfffcdd),
                               side: BorderSide(
                                 color: Colors.lime.shade700,
@@ -117,7 +126,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                   style: sources.font_style(
                     //fontSize: 20,
                     fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: Colors.white,
+                    color: sources.color_TheOther,
                   ),
                 ),        // Name
                 Text(
@@ -125,7 +134,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                   style: sources.font_style(
                     //fontSize: 15,
                     fontSize: MediaQuery.of(context).size.width * 0.04,
-                    color: Colors.white.withOpacity(0.7),
+                    color: sources.color_TheOther.withOpacity(0.7),
                   ),
                 ),        // Username
                 Flexible(
@@ -165,16 +174,13 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                       //fontSize: 15,
                       fontSize: MediaQuery.of(context).size.height * 0.02,
                       //fontSize: MediaQuery.of(context).size.width * 0.035,
-                      color: Colors.white.withOpacity(0.7),
+                      color: sources.color_TheOther.withOpacity(0.7),
                     ),
                   ),
                 ),     // Biography
                 Flexible(
                   child: Row(
-                    children: [
-                      cherpsOne(id: 0, "Your Cherps"),
-                      cherpsOne(id: 1, "Received Cherps"),
-                    ],
+                    children: List.generate(profile_options.length, (index) => cherpsOne(profile_options[index], index)),
                   ),
                 ),    // Cherps
               ],

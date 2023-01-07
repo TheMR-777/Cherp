@@ -8,12 +8,13 @@ class MakeCherp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final accent_color = sources.is_dark ? Colors.yellow : Colors.black;
 
     Widget bottomLogo(String path) => Expanded(
       child: SvgPicture.asset(
         path,
         height: MediaQuery.of(context).size.height * 0.025,
-        color: Colors.yellow,
+        color: accent_color,
       ),
     );
 
@@ -69,7 +70,7 @@ class MakeCherp extends StatelessWidget {
                 ),
                 alignment: Alignment.topLeft,
                 child: TextField(
-                  cursorColor: Colors.yellow,
+                  cursorColor: accent_color,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(
                       vertical: MediaQuery.of(context).size.height * 0.01,
@@ -78,12 +79,12 @@ class MakeCherp extends StatelessWidget {
                     icon: const MyAvatar(aspect: 0.1),
                     hintText: "What's Happening?",
                     hintStyle: sources.font_style(
-                      color: Colors.white.withOpacity(0.5),
+                      color: sources.color_TheOther.withOpacity(0.5),
                     ),
                     border: InputBorder.none,
                   ),
                   style: sources.font_style(
-                    color: Colors.white,
+                    color: sources.color_TheOther,
                     fontSize: MediaQuery.of(context).size.width * 0.045,
                   ),
                 ),
@@ -95,14 +96,12 @@ class MakeCherp extends StatelessWidget {
                 bottomLogo(sources.icon_phone),
                 Expanded(
                   flex: 3,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Select Contact",
-                      style: sources.font_style(
-                        color: Colors.white,
-                        fontSize: MediaQuery.of(context).size.width * 0.045,
-                      ),
+                  child: Text(
+                    "Select Contact",
+                    textAlign: TextAlign.left,
+                    style: sources.font_style(
+                      color: sources.color_TheOther.withOpacity(0.5),
+                      fontSize: MediaQuery.of(context).size.width * 0.045,
                     ),
                   ),
                 ),

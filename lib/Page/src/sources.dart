@@ -16,23 +16,23 @@ final field_border_style = OutlineInputBorder(
 
 Widget text_field(BuildContext context, String label) => TextFormField(
   style: sources.font_style(
-    color: Colors.white,
+    color: sources.color_TheOther,
     // fontSize: 18,
     fontSize: MediaQuery.of(context).size.width * 0.04,
   ),
   maxLines: null,
-  cursorColor: Colors.white.withOpacity(0.7),
+  cursorColor: sources.color_TheOther.withOpacity(0.7),
   decoration: InputDecoration(
     // Set some default text
     filled: true,
-    fillColor: Colors.white.withOpacity(0.07),
+    fillColor: sources.is_dark ? sources.color_light.withOpacity(0.07) : sources.color_light,
     contentPadding: EdgeInsets.symmetric(
       horizontal: MediaQuery.of(context).size.width * 0.05,
       vertical: MediaQuery.of(context).size.height * 0.02,
     ),
     labelText: label,
     labelStyle: sources.font_style(
-      color: Colors.white.withOpacity(0.7),
+      color: sources.color_TheOther.withOpacity(0.7),
       fontSize: 18,
     ),
     enabledBorder: field_border_style,
@@ -51,7 +51,9 @@ class MyAvatar extends StatelessWidget {
       shape: BoxShape.circle,
       border: Border.all(
         color: Colors.white,
-        width: 2,
+
+        // According to aspect
+        width: MediaQuery.of(context).size.width * aspect * 0.07,
       ),
     ),
     child: CircleAvatar(

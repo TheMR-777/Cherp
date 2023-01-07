@@ -1,14 +1,20 @@
-// ignore_for_file: camel_case_types
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+class route {
+  static const signIn = "sign-in";
+  static const verify = "verification";
+  static const myHome = "home";
+}
 
 class sources {
   static var is_dark = false;
 
   static const color_dark = Colors.black;
   static const color_light = Colors.white;
+
+  static final color_selected = is_dark ? color_dark : color_light;
+  static final color_TheOther = is_dark ? color_light : color_dark;
 
   static const icon_main = "assets/Icon/main_transparent.svg";
   static const background = "assets/background_dark.png";
@@ -91,7 +97,7 @@ class _TheCardState extends State<TheCard> {
           Text(
             name,
             style: sources.font_style(
-              color: sources.is_dark ? sources.color_light : sources.color_dark,
+              color: sources.color_TheOther,
               fontSize: MediaQuery.of(context).size.width * 0.04,
             ),
           )
@@ -129,7 +135,7 @@ class _TheCardState extends State<TheCard> {
                 "tweet. This is just a placeholder for now. I am going to further design "
                 "the application.",
             style: sources.font_style(
-              color: (sources.is_dark ? sources.color_light : sources.color_dark).withOpacity(0.8),
+              color: sources.color_TheOther.withOpacity(0.8),
               fontSize: 15,
               height: 1.5,
             ),
@@ -147,18 +153,18 @@ class _TheCardState extends State<TheCard> {
                 onTap: () => setState(() => is_enabled = !is_enabled),
                 child: Icon(
                     is_enabled ? Icons.favorite : Icons.favorite_border,
-                    color: Colors.white
+                    color: is_enabled ? Colors.red : sources.color_TheOther,
                 ),
               ),
               Text(
                 "  1.2K",
                 style: sources.font_style(
-                  color: Colors.white,
+                  color: sources.color_TheOther,
                   fontSize: 15,
                 ),
               ),
               const SizedBox(width: 10),
-              const Icon(Icons.message_rounded, color: Colors.white),
+              Icon(Icons.message_rounded, color: sources.color_TheOther),
             ],
           ),      // Icons
         ],
