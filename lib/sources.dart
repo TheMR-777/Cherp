@@ -19,10 +19,13 @@ class sources {
   static final color_TheOther = is_dark ? color_light : color_dark;
 
   static const icon_main = "assets/Icon/main_transparent.svg";
-  static const background = "assets/background_dark.png";
   static const font_style = GoogleFonts.outfit;
 
+  static const background_dark = "assets/background_dark.png";
   static const background_light = "assets/background_light.png";
+
+  static const background_profile_dark = "assets/background_profile_dark.png";
+  static const background_profile_light = "assets/background_profile_light.png";
 
   static const icon_video = "assets/Icon/add_video.svg";
   static const icon_photo = "assets/Icon/add_photo.svg";
@@ -37,18 +40,22 @@ class sources {
 
 class DarkOne extends StatelessWidget {
   const DarkOne({
+    this.profile = false,
     required this.child,
     Key? key
   }) : super(key: key);
 
   final Widget child;
+  final bool profile;
 
   @override
   Widget build(BuildContext context) => Container(
     decoration: BoxDecoration(
       image: DecorationImage(
         image: AssetImage(
-          sources.is_dark ? sources.background : sources.background_light,
+          sources.is_dark
+              ? profile ? sources.background_profile_dark : sources.background_dark
+              : profile ? sources.background_profile_light : sources.background_light,
         ),
         fit: BoxFit.cover,
       ),

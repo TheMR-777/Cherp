@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'src/sources.dart';
 import '../main.dart';
 import '../sources.dart';
@@ -81,8 +82,61 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
-                        child: Container(),
-                      ),        // Just for Padding
+                        child: GestureDetector(
+                          onTap: () => TheMain.my_controller.jumpToPage(6),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: MediaQuery.of(context).size.width * 0.05,
+                            ),
+                            child: Row(
+                              children: [
+                                Flexible(
+                                  child: Image.asset(
+                                      "assets/Icon/egg.png",
+                                      width: MediaQuery.of(context).size.width * 0.042,
+                                      height: MediaQuery.of(context).size.height * 0.042,
+                                  ),
+                                ),     // Egg
+                                Flexible(
+                                  child: SizedBox(
+                                    width: MediaQuery.of(context).size.width * 0.02,
+                                  ),
+                                ),     // Spacing
+                                Text(
+                                  "1,234",
+                                  style: sources.font_style(
+                                    //fontSize: 15,
+                                    //fontSize: MediaQuery.of(context).size.height * 0.015,
+                                    fontSize: MediaQuery.of(context).size.width * 0.035,
+                                    color: sources.color_TheOther,
+                                  ),
+                                ),         // Text
+                                Flexible(
+                                  child: SizedBox(
+                                    width: MediaQuery.of(context).size.width * 0.02,
+                                  ),
+                                ),     // Spacing
+                                Flexible(
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width * 0.042,
+                                    //height: MediaQuery.of(context).size.height * 0.042,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.yellow,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.black,
+                                      size: MediaQuery.of(context).size.width * 0.04,
+                                    ),
+                                  ),
+                                ),     // Add Eggs
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),        // Egg Count
                       const Flexible(
                           child: MyAvatar(aspect: 0.15)
                       ),  // The Middle Avatar
@@ -120,7 +174,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                       )         // The Edit Button
                     ],
                   ),
-                ),    // Avatar + Edit Button
+                ),    // Top Row
                 Text(
                   settings_info.name,
                   style: sources.font_style(
@@ -190,13 +244,13 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                 ),    // Cherps
               ],
             ),
-          ),         // Profile
+          ),          // Profile
           ...List.generate(5, (index) => Padding(
             padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.05,
             ),
             child: const TheCard(),
-          )),
+          )),  // Cards
         ],
       ),
     );

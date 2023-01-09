@@ -7,7 +7,8 @@ import 'Page/02_search.dart';
 import 'Page/03_tweetify.dart';
 import 'Page/04_notification.dart';
 import 'Page/05_profile.dart';
-import 'Page/99_settings.dart';
+import 'Page/98_settings.dart';
+import 'Page/99_eggs.dart';
 import 'Initial/sign_in.dart';
 import 'Initial/verification.dart';
 
@@ -82,6 +83,7 @@ class _TheMainState extends State<TheMain> {
           MyNotification(),
           MyHomeInfo(),
           ViaEditButton(),
+          BuyEggs(),
         ],
       ),
     );

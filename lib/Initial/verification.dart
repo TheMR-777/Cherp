@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter_svg/svg.dart';
+import '../sources.dart';
 
 class OTP_verification extends StatefulWidget {
   const OTP_verification({super.key});
@@ -44,7 +45,7 @@ class _OTP_verificationState extends State<OTP_verification> {
               height: screen_height,
               width: screen_width,
               child: Image.asset(
-                'assets/background.png',
+                sources.is_dark ? sources.background_profile_dark : sources.background_profile_light,
                 fit: BoxFit.cover,
               ),
             ),
