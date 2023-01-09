@@ -9,7 +9,8 @@ class route {
 }
 
 class sources {
-  static var is_dark = ThemeMode.system == ThemeMode.dark;
+  static var is_dark = true;
+  //static var is_dark = ThemeMode.system == ThemeMode.dark;
 
   static const color_dark = Colors.black;
   static const color_light = Colors.white;
