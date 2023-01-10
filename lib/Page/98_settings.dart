@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:wp_02_twittery/main.dart';
+import '../main.dart';
 import 'src/sources.dart';
 import '../sources.dart';
 

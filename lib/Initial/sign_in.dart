@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wp_02_twittery/sources.dart';
+import '../sources.dart';
 
 class Sign_in extends StatefulWidget {
   const Sign_in({super.key});

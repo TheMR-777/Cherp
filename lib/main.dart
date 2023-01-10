@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wp_02_twittery/sources.dart';
+import 'sources.dart';
 import 'Page/01_home.dart';
 import 'Page/02_search.dart';
 import 'Page/03_tweetify.dart';
