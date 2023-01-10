@@ -9,18 +9,20 @@ import 'Page/04_notification.dart';
 import 'Page/05_profile.dart';
 import 'Page/98_settings.dart';
 import 'Page/99_eggs.dart';
+import 'Page/xx_select_contact.dart';
 import 'Initial/sign_in.dart';
 import 'Initial/verification.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
-  color: Colors.yellow,
+  color: Colors.black,
   title: "Cherp",
   initialRoute: route.signIn,
   routes: {
     route.signIn: (context) => const Sign_in(),
     route.verify: (context) => const OTP_verification(),
     route.myHome: (context) => const TheMain(),
+    "contact": (context) => const contact(),
   },
 ));
 

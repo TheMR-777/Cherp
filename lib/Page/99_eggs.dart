@@ -20,9 +20,10 @@ class _BuyEggsState extends State<BuyEggs> {
   Widget build(BuildContext context) => DarkOne(
     profile: true,
     child: Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: MediaQuery.of(context).size.height * 0.05,
-        horizontal: MediaQuery.of(context).size.width * 0.05,
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).size.height * 0.05,
+        left: MediaQuery.of(context).size.width * 0.05,
+        right: MediaQuery.of(context).size.width * 0.05,
       ),
       child: ListView(
         children: [
@@ -78,7 +79,7 @@ class _BuyEggsState extends State<BuyEggs> {
           ),          // Top Row (AppBar)
           Image.asset(
             "assets/Icon/eggs_intro.png",
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.3,
           ),  // Exp: Floating Eggs
           ...List.generate(
             4, (index) => EggTile(
@@ -133,7 +134,7 @@ class EggTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
     margin: EdgeInsets.only(
-      top: MediaQuery.of(context).size.height * 0.01,
+      top: MediaQuery.of(context).size.height * 0.015,
     ),
     padding: EdgeInsets.symmetric(
       vertical: MediaQuery.of(context).size.height * 0.02,

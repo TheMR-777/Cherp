@@ -96,12 +96,15 @@ class MakeCherp extends StatelessWidget {
                 bottomLogo(sources.icon_phone),
                 Expanded(
                   flex: 3,
-                  child: Text(
-                    "Select Contact",
-                    textAlign: TextAlign.left,
-                    style: sources.font_style(
-                      color: sources.color_TheOther.withOpacity(0.5),
-                      fontSize: MediaQuery.of(context).size.width * 0.045,
+                  child: GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, "contact"),
+                    child: Text(
+                      "Select Contact",
+                      textAlign: TextAlign.left,
+                      style: sources.font_style(
+                        color: sources.color_TheOther.withOpacity(0.5),
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
+                      ),
                     ),
                   ),
                 ),

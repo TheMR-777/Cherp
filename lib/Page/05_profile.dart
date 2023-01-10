@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'src/sources.dart';
 import '../main.dart';
 import '../sources.dart';
@@ -119,7 +118,7 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                                 ),     // Spacing
                                 Flexible(
                                   child: Container(
-                                    width: MediaQuery.of(context).size.width * 0.042,
+                                    //width: MediaQuery.of(context).size.width * 0.042,
                                     //height: MediaQuery.of(context).size.height * 0.042,
                                     decoration: const BoxDecoration(
                                       color: Colors.yellow,
