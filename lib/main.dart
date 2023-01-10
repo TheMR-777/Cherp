@@ -15,7 +15,7 @@ import 'Initial/verification.dart';
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   color: Colors.yellow,
-  title: "Twittery",
+  title: "Cherp",
   initialRoute: route.signIn,
   routes: {
     route.signIn: (context) => const Sign_in(),
