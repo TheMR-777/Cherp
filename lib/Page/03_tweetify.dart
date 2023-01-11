@@ -97,7 +97,7 @@ class MakeCherp extends StatelessWidget {
                 Expanded(
                   flex: 3,
                   child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, "contact"),
+                    onTap: () => Navigator.pushNamed(context, route.contact),
                     child: Text(
                       "Select Contact",
                       textAlign: TextAlign.left,

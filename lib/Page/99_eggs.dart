@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
 import '../sources.dart';
 
 class BuyEggs extends StatefulWidget {
@@ -17,101 +16,90 @@ class _BuyEggsState extends State<BuyEggs> {
           BuyEggs.selected_tile = newIndex);
 
   @override
-  Widget build(BuildContext context) => DarkOne(
-    profile: true,
-    child: Padding(
-      padding: EdgeInsets.only(
-        top: MediaQuery.of(context).size.height * 0.05,
-        left: MediaQuery.of(context).size.width * 0.05,
-        right: MediaQuery.of(context).size.width * 0.05,
-      ),
-      child: ListView(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () => TheMain.my_controller.jumpToPage(4),
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.white.withOpacity(0.8),
-                ),
-              ),  // Back
-              Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: MediaQuery.of(context).size.height * 0.001,
-                  horizontal: MediaQuery.of(context).size.width * 0.03,
-                ),
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFFD355FF),
-                      Color(0xFFA790FF),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+  Widget build(BuildContext context) => Scaffold(
+    body: DarkOne(
+      profile: true,
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height * 0.05,
+          left: MediaQuery.of(context).size.width * 0.05,
+          right: MediaQuery.of(context).size.width * 0.05,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  //onTap: () => TheMain.my_controller.jumpToPage(4),
+                  onTap: () => Navigator.pop(context),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white.withOpacity(0.8),
                   ),
-                  borderRadius: BorderRadius.circular(10),
+                ),  // Back
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * 0.001,
+                    horizontal: MediaQuery.of(context).size.width * 0.03,
+                  ),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xFFD355FF),
+                        Color(0xFFA790FF),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "assets/Icon/egg.png",
+                        width: MediaQuery.of(context).size.width * 0.042,
+                        height: MediaQuery.of(context).size.height * 0.042,
+                      ),     // Egg
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      ),        // Spacing
+                      Text(
+                        "1,234",
+                        style: sources.font_style(
+                          //fontSize: 15,
+                          //fontSize: MediaQuery.of(context).size.height * 0.015,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
+                          color: sources.color_TheOther,
+                        ),
+                      ),            // Text
+                    ],
+                  ),
+                ),        // Egg
+              ],
+            ),          // Top Row (AppBar)
+            Image.asset(
+              "assets/Icon/eggs_intro.png",
+              height: MediaQuery.of(context).size.height * 0.3,
+            ),  // Exp: Floating Eggs
+            Flexible(
+              child: ListView.builder(
+                shrinkWrap: true,
+                //physics: const NeverScrollableScrollPhysics(),
+                itemCount: 7,
+                itemBuilder: (context, index) => EggTile(
+                  count: index * 5 + 5,
+                  price: index + 4.99,
+                  is_selected: BuyEggs.selected_tile == index,
+                  onTap: makeSelected(index),
                 ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/Icon/egg.png",
-                      width: MediaQuery.of(context).size.width * 0.042,
-                      height: MediaQuery.of(context).size.height * 0.042,
-                    ),     // Egg
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.02,
-                    ),        // Spacing
-                    Text(
-                      "1,234",
-                      style: sources.font_style(
-                        //fontSize: 15,
-                        //fontSize: MediaQuery.of(context).size.height * 0.015,
-                        fontSize: MediaQuery.of(context).size.width * 0.035,
-                        color: sources.color_TheOther,
-                      ),
-                    ),            // Text
-                  ],
-                ),
-              ),        // Egg
-            ],
-          ),          // Top Row (AppBar)
-          Image.asset(
-            "assets/Icon/eggs_intro.png",
-            height: MediaQuery.of(context).size.height * 0.3,
-          ),  // Exp: Floating Eggs
-          ...List.generate(
-            4, (index) => EggTile(
-              count: index * 5 + 5,
-              price: index + 4.99,
-              is_selected: BuyEggs.selected_tile == index,
-              onTap: makeSelected(index),
-            ),
-          ), // Egg Tiles
-          Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.yellow,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.05,
-              vertical: MediaQuery.of(context).size.height * 0.02,
-            ),
-            margin: EdgeInsets.symmetric(
-              vertical: MediaQuery.of(context).size.height * 0.02,
-              horizontal: MediaQuery.of(context).size.width * 0.07,
-            ),
-            child: Text(
-              "Buy Eggs",
-              style: sources.font_style(
-                color: Colors.black,
-                fontSize: MediaQuery.of(context).size.width * 0.05,
               ),
             ),
-          ),    // Buy Eggs
-        ],
+            const TheButton(text: "Buy Eggs"),    // Buy Eggs
+          ],
+        ),
       ),
     ),
   );

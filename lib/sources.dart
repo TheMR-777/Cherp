@@ -6,6 +6,10 @@ class route {
   static const signIn = "sign-in";
   static const verify = "verification";
   static const myHome = "home";
+
+  static const contact = "select-contact";
+  static const setting = "settings";
+  static const theEggs = "eggs";
 }
 
 class sources {
@@ -36,6 +40,51 @@ class sources {
   static const avatar_02 = "assets/Placeholder/P2.png";
 
   static const image_01 = "assets/Placeholder/Image1.png";
+}
+
+class TheButton extends StatefulWidget {
+  const TheButton({
+    required this.text,
+    super.key
+  });
+
+  final String text;
+
+  @override
+  State<TheButton> createState() => _TheButtonState();
+}
+
+class _TheButtonState extends State<TheButton> {
+  bool _isPressed = false;
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+    // _isPressed should be true when the button is pressed, but set to false when the button is released.
+    onTapDown: (_) => setState(() => _isPressed = true),
+    onTapUp: (_) => setState(() => _isPressed = false),
+    child: Container(
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: _isPressed ? sources.color_TheOther : Colors.yellow,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width * 0.05,
+        vertical: MediaQuery.of(context).size.height * 0.02,
+      ),
+      margin: EdgeInsets.symmetric(
+        vertical: MediaQuery.of(context).size.height * 0.02,
+        horizontal: MediaQuery.of(context).size.width * 0.07,
+      ),
+      child: Text(
+        widget.text,
+        style: sources.font_style(
+          color: Colors.black,
+          fontSize: 18,
+        ),
+      ),
+    ),
+  );
 }
 
 class DarkOne extends StatelessWidget {

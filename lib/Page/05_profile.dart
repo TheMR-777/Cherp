@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'src/sources.dart';
-import '../main.dart';
 import '../sources.dart';
 
 class MyHomeInfo extends StatefulWidget {
@@ -82,7 +81,8 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                     children: [
                       Flexible(
                         child: GestureDetector(
-                          onTap: () => TheMain.my_controller.jumpToPage(6),
+                          //onTap: () => TheMain.my_controller.jumpToPage(6),
+                          onTap: () => Navigator.pushNamed(context, route.theEggs),
                           child: Container(
                             alignment: Alignment.topLeft,
                             padding: EdgeInsets.symmetric(
@@ -146,7 +146,8 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
                             horizontal: MediaQuery.of(context).size.width * 0.05,
                           ),
                           child: OutlinedButton(
-                            onPressed: () => TheMain.my_controller.animateToPage(5),
+                            //onPressed: () => TheMain.my_controller.animateToPage(5),
+                            onPressed: () => Navigator.pushNamed(context, route.setting),
                             style: OutlinedButton.styleFrom(
                               padding: EdgeInsets.symmetric(
                                 horizontal: MediaQuery.of(context).size.width * 0.04,
