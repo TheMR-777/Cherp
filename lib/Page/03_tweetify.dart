@@ -23,6 +23,9 @@ class MakeCherp extends StatelessWidget {
         padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
         child: Column(
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
             Container(
               alignment: Alignment.centerRight,
               child: OutlinedButton(
