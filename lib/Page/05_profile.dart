@@ -61,198 +61,196 @@ class _MyHomeInfoState extends State<MyHomeInfo> {
         );
     }
 
-    return DarkOne(
-      child: ListView(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.6,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.04,
-                  ),
-                ),    // 4% of the screen height
-                Flexible(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                        child: GestureDetector(
-                          //onTap: () => TheMain.my_controller.jumpToPage(6),
-                          onTap: () => Navigator.pushNamed(context, route.theEggs),
-                          child: Container(
-                            alignment: Alignment.topLeft,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: MediaQuery.of(context).size.width * 0.05,
-                            ),
-                            child: Row(
-                              children: [
-                                Flexible(
-                                  child: Image.asset(
-                                      "assets/Icon/egg.png",
-                                      width: MediaQuery.of(context).size.width * 0.042,
-                                      height: MediaQuery.of(context).size.height * 0.042,
-                                  ),
-                                ),     // Egg
-                                Flexible(
-                                  child: SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.02,
-                                  ),
-                                ),     // Spacing
-                                Text(
-                                  "1,234",
-                                  style: sources.font_style(
-                                    //fontSize: 15,
-                                    //fontSize: MediaQuery.of(context).size.height * 0.015,
-                                    fontSize: MediaQuery.of(context).size.width * 0.035,
-                                    color: sources.color_TheOther,
-                                  ),
-                                ),         // Text
-                                Flexible(
-                                  child: SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.02,
-                                  ),
-                                ),     // Spacing
-                                Flexible(
-                                  child: Container(
-                                    //width: MediaQuery.of(context).size.width * 0.042,
-                                    //height: MediaQuery.of(context).size.height * 0.042,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.yellow,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colors.black,
-                                      size: MediaQuery.of(context).size.width * 0.04,
-                                    ),
-                                  ),
-                                ),     // Add Eggs
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),        // Egg Count
-                      const Flexible(
-                          child: MyAvatar(aspect: 0.15)
-                      ),  // The Middle Avatar
-                      Flexible(
+    return ListView(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.6,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
+                ),
+              ),    // 4% of the screen height
+              Flexible(
+                flex: 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: GestureDetector(
+                        //onTap: () => TheMain.my_controller.jumpToPage(6),
+                        onTap: () => Navigator.pushNamed(context, route.theEggs),
                         child: Container(
-                          alignment: Alignment.topRight,
+                          alignment: Alignment.topLeft,
                           padding: EdgeInsets.symmetric(
                             horizontal: MediaQuery.of(context).size.width * 0.05,
                           ),
-                          child: OutlinedButton(
-                            //onPressed: () => TheMain.my_controller.animateToPage(5),
-                            onPressed: () => Navigator.pushNamed(context, route.setting),
-                            style: OutlinedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: MediaQuery.of(context).size.width * 0.04,
-                                vertical: MediaQuery.of(context).size.height * 0.015,
-                              ),
-                              backgroundColor: const Color(0xFFfffcdd),
-                              side: BorderSide(
-                                color: Colors.lime.shade700,
-                                width: 1.5,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
+                          child: Row(
+                            children: [
+                              Flexible(
+                                child: Image.asset(
+                                    "assets/Icon/egg.png",
+                                    width: MediaQuery.of(context).size.width * 0.042,
+                                    height: MediaQuery.of(context).size.height * 0.042,
+                                ),
+                              ),     // Egg
+                              Flexible(
+                                child: SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.02,
+                                ),
+                              ),     // Spacing
+                              Text(
+                                "1,234",
+                                style: sources.font_style(
+                                  //fontSize: 15,
+                                  //fontSize: MediaQuery.of(context).size.height * 0.015,
+                                  fontSize: MediaQuery.of(context).size.width * 0.035,
+                                  color: sources.color_TheOther,
+                                ),
+                              ),         // Text
+                              Flexible(
+                                child: SizedBox(
+                                  width: MediaQuery.of(context).size.width * 0.02,
+                                ),
+                              ),     // Spacing
+                              Flexible(
+                                child: Container(
+                                  //width: MediaQuery.of(context).size.width * 0.042,
+                                  //height: MediaQuery.of(context).size.height * 0.042,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.yellow,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.black,
+                                    size: MediaQuery.of(context).size.width * 0.04,
+                                  ),
+                                ),
+                              ),     // Add Eggs
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),        // Egg Count
+                    const Flexible(
+                        child: MyAvatar(aspect: 0.15)
+                    ),  // The Middle Avatar
+                    Flexible(
+                      child: Container(
+                        alignment: Alignment.topRight,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        child: OutlinedButton(
+                          //onPressed: () => TheMain.my_controller.animateToPage(5),
+                          onPressed: () => Navigator.pushNamed(context, route.setting),
+                          style: OutlinedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: MediaQuery.of(context).size.width * 0.04,
+                              vertical: MediaQuery.of(context).size.height * 0.015,
                             ),
-                            child: Text(
-                              "Edit",
-                              style: sources.font_style(
-                                color: Colors.lime.shade800,
-                                fontSize: MediaQuery.of(context).size.height * 0.02,
-                              ),
+                            backgroundColor: const Color(0xFFfffcdd),
+                            side: BorderSide(
+                              color: Colors.lime.shade700,
+                              width: 1.5,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: Text(
+                            "Edit",
+                            style: sources.font_style(
+                              color: Colors.lime.shade800,
+                              fontSize: MediaQuery.of(context).size.height * 0.02,
                             ),
                           ),
                         ),
-                      )         // The Edit Button
+                      ),
+                    )         // The Edit Button
+                  ],
+                ),
+              ),    // Top Row
+              Text(
+                settings_info.name,
+                style: sources.font_style(
+                  //fontSize: 20,
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: sources.color_TheOther,
+                ),
+              ),        // Name
+              Text(
+                settings_info.username,
+                style: sources.font_style(
+                  //fontSize: 15,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  color: sources.color_TheOther.withOpacity(0.7),
+                ),
+              ),        // Username
+              Flexible(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFfffcdd),
+                    border: Border.all(
+                      color: Colors.yellow.withOpacity(0.7),
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.03,
+                    vertical: MediaQuery.of(context).size.height * 0.005,
+                  ),
+                  margin: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.3,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      levelText("Level 2"),
+                      // Bird logo
+                      Image.asset(
+                        "assets/Icon/bird.png",
+                        width: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      levelText("1,234"),
                     ],
                   ),
-                ),    // Top Row
-                Text(
-                  settings_info.name,
-                  style: sources.font_style(
-                    //fontSize: 20,
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    color: sources.color_TheOther,
-                  ),
-                ),        // Name
-                Text(
-                  settings_info.username,
+                ),
+              ),    // Level
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                ),
+                child: Text(
+                  settings_info.biography,
+                  textAlign: TextAlign.center,
                   style: sources.font_style(
                     //fontSize: 15,
-                    fontSize: MediaQuery.of(context).size.width * 0.04,
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    //fontSize: MediaQuery.of(context).size.width * 0.035,
                     color: sources.color_TheOther.withOpacity(0.7),
                   ),
-                ),        // Username
-                Flexible(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFfffcdd),
-                      border: Border.all(
-                        color: Colors.yellow.withOpacity(0.7),
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.03,
-                      vertical: MediaQuery.of(context).size.height * 0.005,
-                    ),
-                    margin: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.3,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        levelText("Level 2"),
-                        // Bird logo
-                        Image.asset(
-                          "assets/Icon/bird.png",
-                          width: MediaQuery.of(context).size.width * 0.05,
-                        ),
-                        levelText("1,234"),
-                      ],
-                    ),
-                  ),
-                ),    // Level
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.05,
-                  ),
-                  child: Text(
-                    settings_info.biography,
-                    textAlign: TextAlign.center,
-                    style: sources.font_style(
-                      //fontSize: 15,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
-                      //fontSize: MediaQuery.of(context).size.width * 0.035,
-                      color: sources.color_TheOther.withOpacity(0.7),
-                    ),
-                  ),
-                ),     // Biography
-                Flexible(
-                  child: Row(
-                    children: List.generate(profile_options.length, (index) => cherpsOne(profile_options[index], index)),
-                  ),
-                ),    // Cherps
-              ],
-            ),
-          ),          // Profile
-          ...List.generate(5, (index) => Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.05,
-            ),
-            child: const TheCard(),
-          )),  // Cards
-        ],
-      ),
+                ),
+              ),     // Biography
+              Flexible(
+                child: Row(
+                  children: List.generate(profile_options.length, (index) => cherpsOne(profile_options[index], index)),
+                ),
+              ),    // Cherps
+            ],
+          ),
+        ),          // Profile
+        ...List.generate(5, (index) => Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.05,
+          ),
+          child: const TheCard(),
+        )),  // Cards
+      ],
     );
   }
 }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class route {
+  static splash(int x) => '0$x';
+
   static const signIn = "sign-in";
   static const verify = "verification";
   static const myHome = "home";
@@ -45,9 +47,13 @@ class sources {
 class TheButton extends StatefulWidget {
   const TheButton({
     required this.text,
+    this.aspect = 0.07,
+    this.onPressed,
     super.key
   });
 
+  final double aspect;
+  final VoidCallback? onPressed;
   final String text;
 
   @override
@@ -61,7 +67,10 @@ class _TheButtonState extends State<TheButton> {
   Widget build(BuildContext context) => GestureDetector(
     // _isPressed should be true when the button is pressed, but set to false when the button is released.
     onTapDown: (_) => setState(() => _isPressed = true),
-    onTapUp: (_) => setState(() => _isPressed = false),
+    onTapUp: (_) => setState(() {
+      _isPressed = false;
+      widget.onPressed?.call();
+    }),
     child: Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -74,7 +83,7 @@ class _TheButtonState extends State<TheButton> {
       ),
       margin: EdgeInsets.symmetric(
         vertical: MediaQuery.of(context).size.height * 0.02,
-        horizontal: MediaQuery.of(context).size.width * 0.07,
+        horizontal: MediaQuery.of(context).size.width * widget.aspect,
       ),
       child: Text(
         widget.text,

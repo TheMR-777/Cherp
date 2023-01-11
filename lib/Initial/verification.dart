@@ -118,28 +118,11 @@ class _OTP_verificationState extends State<OTP_verification> {
                 SizedBox(
                   height: screen_height * 0.15,
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    height: screen_height / 15,
-                    width: screen_width / 1.5,
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 252, 231, 42),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'home');
-                      },
-                      child: Text(
-                        "Send OTP",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
+
+                TheButton(
+                  text: "Send OTP",
+                  aspect: 0.15,
+                  onPressed: () => Navigator.pushNamed(context, route.myHome),
                 ),
                 SizedBox(
                   height: screen_height * 0.05,

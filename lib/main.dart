@@ -12,13 +12,22 @@ import 'Page/99_eggs.dart';
 import 'Page/97_select_contact.dart';
 import 'Initial/sign_in.dart';
 import 'Initial/verification.dart';
+import 'Initial/SplashScreen/screen1.dart';
+import 'Initial/SplashScreen/screen2.dart';
+import 'Initial/SplashScreen/screen3.dart';
+import 'Initial/SplashScreen/screen4.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   color: Colors.black,
   title: "Cherp",
-  initialRoute: route.signIn,
+  initialRoute: route.splash(1),
   routes: {
+    route.splash(1): (context) => const SplashScreen01(),
+    route.splash(2): (context) => const SplashScreen02(),
+    route.splash(3): (context) => const SplashScreen03(),
+    route.splash(4): (context) => const SplashScreen04(),
+
     route.signIn: (context) => const Sign_in(),
     route.verify: (context) => const OTP_verification(),
     route.myHome: (context) => const TheMain(),
@@ -47,6 +56,7 @@ class TheMain extends StatefulWidget {
 
 class _TheMainState extends State<TheMain> {
   int selected = 0;
+  static bool profile = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,33 +73,46 @@ class _TheMainState extends State<TheMain> {
       ),
     );
 
-    return Scaffold(
-      bottomNavigationBar: Container(
-        color: sources.color_selected,
-        height: MediaQuery.of(context).size.height * 0.075,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: List.generate(TheMain.icon_names.length, (index) => bottomLogo(TheMain.icon_names[index], index)),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            sources.is_dark
+                ? profile ? sources.background_profile_dark : sources.background_dark
+                : profile ? sources.background_profile_light : sources.background_light,
+          ),
+          fit: BoxFit.cover,
         ),
       ),
-      body: CarouselSlider(
-        carouselController: TheMain.my_controller,
-        options: CarouselOptions(
-          height: MediaQuery.of(context).size.height * 0.925,
-          viewportFraction: 1,
-          enableInfiniteScroll: false,
-          onPageChanged: (index, reason) => setState(() => selected = index),
-          scrollPhysics: const NeverScrollableScrollPhysics(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        bottomNavigationBar: Container(
+          color: sources.color_selected,
+          height: MediaQuery.of(context).size.height * 0.075,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: List.generate(TheMain.icon_names.length, (index) => bottomLogo(TheMain.icon_names[index], index)),
+          ),
         ),
-        items: const [
-          MyHomePage(),
-          MySearch(),
-          MakeCherp(),
-          MyNotification(),
-          MyHomeInfo(),
-          //ViaEditButton(),
-          //BuyEggs(),
-        ],
+        body: CarouselSlider(
+          carouselController: TheMain.my_controller,
+          options: CarouselOptions(
+            height: MediaQuery.of(context).size.height * 0.925,
+            viewportFraction: 1,
+            enableInfiniteScroll: false,
+            onPageChanged: (index, reason) => setState(() => selected = index),
+            scrollPhysics: const NeverScrollableScrollPhysics(),
+          ),
+          items: const [
+            MyHomePage(),
+            MySearch(),
+            MakeCherp(),
+            MyNotification(),
+            MyHomeInfo(),
+            //ViaEditButton(),
+            //BuyEggs(),
+          ],
+        ),
       ),
     );
   }

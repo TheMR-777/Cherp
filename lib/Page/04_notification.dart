@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../sources.dart';
 
 class MyNotification extends StatelessWidget {
   const MyNotification({Key? key}) : super(key: key);
@@ -65,33 +64,31 @@ class MyNotification extends StatelessWidget {
     }
 
 
-    return DarkOne(
-      child: ListView(
-        padding: EdgeInsets.symmetric(
-            vertical: screen_height / 15,
-            horizontal: screen_width / 15,
-        ),
-        children: [
-          const Text(
-              "Notifications",
-              style: TextStyle(
-                  letterSpacing: 2,
-                  color: Colors.white,
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold
-              )
-          ),
-          SizedBox(
-            height: screen_height * 0.07,
-          ),
-          ...List.generate(iconList.length, (index) => Column(
-            children: [
-              single_notification(index),
-              sizedbox(),
-            ],
-          )),
-        ],
+    return ListView(
+      padding: EdgeInsets.symmetric(
+          vertical: screen_height / 15,
+          horizontal: screen_width / 15,
       ),
+      children: [
+        const Text(
+            "Notifications",
+            style: TextStyle(
+                letterSpacing: 2,
+                color: Colors.white,
+                fontSize: 23,
+                fontWeight: FontWeight.bold
+            )
+        ),
+        SizedBox(
+          height: screen_height * 0.07,
+        ),
+        ...List.generate(iconList.length, (index) => Column(
+          children: [
+            single_notification(index),
+            sizedbox(),
+          ],
+        )),
+      ],
     );
   }
 }
