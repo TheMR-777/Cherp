@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import, prefer_const_constructors, sized_box_for_whitespace, unused_local_variable, non_constant_identifier_names, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 
+import 'package:cherp/Initial/SplashScreen/main_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../Page/04_notification.dart';
@@ -114,7 +115,8 @@ class _SplashScreen02State extends State<SplashScreen02> {
               TheButton(
                 text: "Next",
                 aspect: 0.12,
-                onPressed: () => Navigator.pushNamed(context, route.splash(3)),
+                onPressed: () => SplashScreens.my_controller.nextPage(),
+                //onPressed: () => Navigator.pushNamed(context, route.splash(3)),
               ),
             ],
           ),

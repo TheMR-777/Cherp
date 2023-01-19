@@ -1,3 +1,4 @@
+import 'package:cherp/Initial/SplashScreen/main_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,6 +13,7 @@ import 'Page/99_eggs.dart';
 import 'Page/97_select_contact.dart';
 import 'Initial/sign_in.dart';
 import 'Initial/verification.dart';
+import 'Initial/SplashScreen/screen1_extra.dart';
 import 'Initial/SplashScreen/screen1.dart';
 import 'Initial/SplashScreen/screen2.dart';
 import 'Initial/SplashScreen/screen3.dart';
@@ -21,13 +23,8 @@ void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   color: Colors.black,
   title: "Cherp",
-  initialRoute: route.splash(1),
+  home: const SplashScreen(),
   routes: {
-    route.splash(1): (context) => const SplashScreen01(),
-    route.splash(2): (context) => const SplashScreen02(),
-    route.splash(3): (context) => const SplashScreen03(),
-    route.splash(4): (context) => const SplashScreen04(),
-
     route.signIn: (context) => const Sign_in(),
     route.verify: (context) => const OTP_verification(),
     route.myHome: (context) => const TheMain(),
