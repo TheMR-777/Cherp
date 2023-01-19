@@ -64,8 +64,8 @@ class _SplashScreenState extends State<SplashScreen> {
               TheButton(
                 text: "Next",
                 aspect: 0.12,
-                onPressed: () => SplashScreens.my_controller.nextPage(),
-                //onPressed: () => Navigator.pushNamed(context, route.splash(3)),
+                //onPressed: () => SplashScreens.my_controller.nextPage(),
+                onPressed: () => Navigator.pushNamed(context, route.signIn),
               ),
             ],
           ),
